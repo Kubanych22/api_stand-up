@@ -36,22 +36,22 @@ const startServer = async (port) => {
         const [resource, id] = segments;
 
         if (req.method === "GET" && resource === "comedians") {
-          handleComediansRequest(req, res, comedians, id);
+          await handleComediansRequest(req, res, comedians, id);
           return;
         }
 
         if (req.method === "POST" && resource === "clients") {
-          handleAddClient(req, res);
+          await handleAddClient(req, res);
           return;
         }
 
         if (req.method === "GET" && resource === "clients" && id) {
-          handleClientsRequest(req, res, id);
+          await handleClientsRequest(req, res, id);
           return;
         }
 
         if (req.method === "PATCH" && resource === "clients" && id) {
-          handleUpdateClient(req, res, id);
+          await handleUpdateClient(req, res, id);
           return;
         }
 
